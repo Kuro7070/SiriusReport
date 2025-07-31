@@ -95,7 +95,7 @@ Am 23.07.2025 gegen 22:00 Uhr wurde ich zur Musterstraße 12 gerufen. Vor Ort st
 
 Ein anwesender Zeuge, Herr M., gab an, zur Tatzeit verdächtige Geräusche gehört zu haben. Beim Nachsehen habe er eine dunkel gekleidete Person mit Kapuze beobachtet, die sich zügig vom Tatort entfernte. Die Person konnte nicht näher beschrieben werden.
 
-Ich sicherte den Bereich, informierte die Spurensicherung und nahm eine Anzeige wegen Einbruchsdiebstahls auf.```
+Ich sicherte den Bereich, informierte die Spurensicherung und nahm eine Anzeige wegen Einbruchsdiebstahls auf.
 
 ### 📄 Beispiel 2
 
