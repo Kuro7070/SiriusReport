@@ -91,16 +91,16 @@ Die folgenden Beispieltexte können vom Benutzer eingesprochen werden. Sie wurde
 
 ### 📄 Beispiel 1 – Einbruchsdiebstahl
 
-```text
+```
 Am 23.07.2025 gegen 22:00 Uhr wurde ich zur Musterstraße 12 gerufen. Vor Ort stellte ich eine eingeschlagene Fensterscheibe am rückwärtigen Lagerraum fest. Im Inneren lagen Glasscherben auf dem Boden, Regale waren umgeworfen, und mehrere Werkzeuge fehlten augenscheinlich.
 
 Ein anwesender Zeuge, Herr M., gab an, zur Tatzeit verdächtige Geräusche gehört zu haben. Beim Nachsehen habe er eine dunkel gekleidete Person mit Kapuze beobachtet, die sich zügig vom Tatort entfernte. Die Person konnte nicht näher beschrieben werden.
 
-Ich sicherte den Bereich, informierte die Spurensicherung und nahm eine Anzeige wegen Einbruchsdiebstahls auf.
+Ich sicherte den Bereich, informierte die Spurensicherung und nahm eine Anzeige wegen Einbruchsdiebstahls auf.```
 
-```text
+```
 Am 15.06.2025 gegen 01:15 Uhr wurde ich zur Reeperbahn 136 gerufen. Vor Ort traf ich auf eine männliche Person (28 Jahre), die Gesichtsverletzungen aufwies. Nach eigenen Angaben sei es zuvor zu einem verbalen Streit mit einem unbekannten Mann gekommen. Im weiteren Verlauf habe der Unbekannte mehrfach auf ihn eingeschlagen und sei anschließend in Richtung Hein-Hoyer-Straße geflüchtet.
 
 Mehrere anwesende Passanten bestätigten, eine körperliche Auseinandersetzung beobachtet zu haben. Eine detaillierte Täterbeschreibung konnte jedoch nicht gegeben werden.
 
-Der Verletzte wurde vor Ort medizinisch erstversorgt. Eine Nahbereichsfahndung verlief negativ. Die Ermittlungen wegen gefährlicher Körperverletzung wurden eingeleitet.
+Der Verletzte wurde vor Ort medizinisch erstversorgt. Eine Nahbereichsfahndung verlief negativ. Die Ermittlungen wegen gefährlicher Körperverletzung wurden eingeleitet.```
