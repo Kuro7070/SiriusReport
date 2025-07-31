@@ -133,7 +133,7 @@ struct PersistenceController {
         do {
             try context.save()
         } catch {
-            print("❌ Fehler beim Seed-Speichern: \(error)")
+            print("Fehler beim Seed-Speichern: \(error)")
         }
     }
 }

@@ -25,14 +25,14 @@ class SpeechController: NSObject, ObservableObject {
             DispatchQueue.main.async {
                 self.isAuthorized = (status == .authorized)
                 if !self.isAuthorized {
-                    print("❌ Keine Berechtigung für Spracherkennung.")
+                    print("Keine Berechtigung für Spracherkennung.")
                 }
             }
         }
         
         AVAudioSession.sharedInstance().requestRecordPermission { granted in
             if !granted {
-                print("❌ Mikrofon-Zugriff nicht erlaubt.")
+                print("Mikrofon-Zugriff nicht erlaubt.")
             }
         }
     }
@@ -40,11 +40,11 @@ class SpeechController: NSObject, ObservableObject {
     // MARK: - Aufnahme starten
     func startRecording() {
         guard !isSessionActive else {
-            print("⚠️ Eine Aufnahme läuft bereits.")
+            print("Eine Aufnahme läuft bereits.")
             return
         }
         guard isAuthorized else {
-            print("❌ Spracherkennung nicht autorisiert.")
+            print("Spracherkennung nicht autorisiert.")
             return
         }
         
@@ -65,7 +65,7 @@ class SpeechController: NSObject, ObservableObject {
             audioEngine.prepare()
             try audioEngine.start()
         } catch {
-            print("❌ Fehler beim Starten der AudioEngine: \(error)")
+            print("Fehler beim Starten der AudioEngine: \(error)")
             return
         }
         
@@ -75,13 +75,13 @@ class SpeechController: NSObject, ObservableObject {
             }
             
             if let error = error {
-                print("❌ Speech-Recognition-Error: \(error.localizedDescription)")
+                print("Speech-Recognition-Error: \(error.localizedDescription)")
                 self.handleRecognitionError()
             }
         }
         
         isSessionActive = true
-        print("🎤 Aufnahme gestartet")
+        print("Aufnahme gestartet")
     }
     
     // MARK: - Aufnahme stoppen
@@ -94,7 +94,7 @@ class SpeechController: NSObject, ObservableObject {
         recognitionTask?.cancel()
         
         isSessionActive = false
-        print("⏹ Aufnahme gestoppt")
+        print("Aufnahme gestoppt")
     }
     
     // MARK: - Fehlerbehandlung
@@ -112,7 +112,7 @@ class SpeechController: NSObject, ObservableObject {
             try session.setCategory(.record, mode: .measurement, options: .duckOthers)
             try session.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
-            print("❌ Fehler beim Konfigurieren der AudioSession: \(error)")
+            print("Fehler beim Konfigurieren der AudioSession: \(error)")
         }
     }
     

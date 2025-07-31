@@ -31,12 +31,12 @@ class ReportController: ObservableObject {
         report.date       = date
         report.officer    = officer
         report.tags       = tags.joined(separator: ",")
-        report.createdAt  = Date()             // NEU: Erstellungsdatum
+        report.createdAt  = Date()
 
         do {
             try viewContext.save()
         } catch {
-            print("❌ Fehler beim Speichern: \(error)")
+            print("Fehler beim Speichern: \(error)")
         }
     }
 
@@ -45,7 +45,7 @@ class ReportController: ObservableObject {
         do {
             try viewContext.save()
         } catch {
-            print("❌ Fehler beim Löschen: \(error)")
+            print("Fehler beim Löschen: \(error)")
         }
     }
 }

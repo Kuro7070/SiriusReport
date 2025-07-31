@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD0CC7032E34C3D5008D9237 /* Kuzco in Frameworks */ = {isa = PBXBuildFile; productRef = CD0CC7022E34C3D5008D9237 /* Kuzco */; };
 		CD0CC7312E34DB6F008D9237 /* ReportsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC72F2E34DB6F008D9237 /* ReportsModel.xcdatamodeld */; };
 		CD0CC7332E34DE0B008D9237 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = CD0CC7322E34DE04008D9237 /* README.MD */; };
+		CDF539022E355CF70086E61A /* Kuzco in Frameworks */ = {isa = PBXBuildFile; productRef = CDF539012E355CF70086E61A /* Kuzco */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,11 @@
 			path = "Sirius ReportUITests";
 			sourceTree = "<group>";
 		};
+		CD4AEBC22E3BC8DE0048D4E4 /* Businessplan */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Businessplan;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0CC7032E34C3D5008D9237 /* Kuzco in Frameworks */,
+				CDF539022E355CF70086E61A /* Kuzco in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +89,7 @@
 		CD0CC6CD2E34C23A008D9237 = {
 			isa = PBXGroup;
 			children = (
+				CD4AEBC22E3BC8DE0048D4E4 /* Businessplan */,
 				CD0CC7322E34DE04008D9237 /* README.MD */,
 				CD0CC72F2E34DB6F008D9237 /* ReportsModel.xcdatamodeld */,
 				CD0CC6D82E34C23A008D9237 /* Sirius Report */,
@@ -120,10 +126,11 @@
 			);
 			fileSystemSynchronizedGroups = (
 				CD0CC6D82E34C23A008D9237 /* Sirius Report */,
+				CD4AEBC22E3BC8DE0048D4E4 /* Businessplan */,
 			);
 			name = "Sirius Report";
 			packageProductDependencies = (
-				CD0CC7022E34C3D5008D9237 /* Kuzco */,
+				CDF539012E355CF70086E61A /* Kuzco */,
 			);
 			productName = "Sirius Report";
 			productReference = CD0CC6D62E34C23A008D9237 /* Sirius Report.app */;
@@ -208,7 +215,7 @@
 			mainGroup = CD0CC6CD2E34C23A008D9237;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				CD0CC7012E34C3D5008D9237 /* XCRemoteSwiftPackageReference "Kuzco" */,
+				CDF539002E355CF70086E61A /* XCRemoteSwiftPackageReference "Kuzco" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CD0CC6D72E34C23A008D9237 /* Products */;
@@ -624,20 +631,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CD0CC7012E34C3D5008D9237 /* XCRemoteSwiftPackageReference "Kuzco" */ = {
+		CDF539002E355CF70086E61A /* XCRemoteSwiftPackageReference "Kuzco" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jaredcassoutt/Kuzco";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD0CC7022E34C3D5008D9237 /* Kuzco */ = {
+		CDF539012E355CF70086E61A /* Kuzco */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD0CC7012E34C3D5008D9237 /* XCRemoteSwiftPackageReference "Kuzco" */;
+			package = CDF539002E355CF70086E61A /* XCRemoteSwiftPackageReference "Kuzco" */;
 			productName = Kuzco;
 		};
 /* End XCSwiftPackageProductDependency section */

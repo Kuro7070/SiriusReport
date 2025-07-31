@@ -25,7 +25,7 @@ public class ChatController: ObservableObject {
     // MARK: – Modell laden
     public func loadModel() async {
         guard let modelURL = Bundle.main.url(forResource: "gemma-2b", withExtension: "gguf") else {
-            print("❌ Modell-Datei nicht gefunden!")
+            print("Modell-Datei nicht gefunden!")
             return
         }
         let profile = ModelProfile(id: "gemma-model", sourcePath: modelURL.path)
@@ -36,7 +36,7 @@ public class ChatController: ObservableObject {
             loadingStage = "\(progress.stage)"
             if progress.stage == .ready {
                 isModelReady = true
-                print("✅ Modell geladen und einsatzbereit!")
+                print("Modell geladen und einsatzbereit!")
             }
         }
     }
@@ -62,30 +62,28 @@ public class ChatController: ObservableObject {
         state = .processing
 
         let prompt = """
-        Du bist ein Ermittlungsassistent. Analysiere diesen Berichtstext und finde Lücken:
-        "\(collectedText)"
+        Analysiere den folgenden Bericht und stelle bis zu 5 gezielte Fragen zu fehlenden oder unklaren Informationen:
 
-        Formuliere genau 5 offene Fragen, die sich klar unterscheiden und rein auf fehlende Fakten abzielen:
-         1. Ort und Zeitpunkt?
-         2. Beteiligte Personen?
-         3. Tathergang/Ablauf?
-         4. Zeugen oder Beweismittel?
-         5. Ergriffene Maßnahmen?
-        Antworte nur mit den Fragen (eine pro Zeile). Wenn alles vollständig ist, schreibe nur: Bericht vollständig.
+        „\(collectedText)“
+
+        Nur wenn wichtige Infos fehlen (z. B. Ort, Zeit, Beteiligte, Ablauf, Schäden, Maßnahmen), formuliere kurze, sachliche Fragen – eine pro Zeile. 
+        Wenn alles klar und vollständig ist, antworte nur mit: Bericht vollständig.
+
         """
 
         var response = ""
         do {
-            let stream = try await instance.generate(dialogue: [Turn(role: .system, text: prompt)])
+            let stream = await instance.generate(dialogue: [Turn(role: .system, text: prompt)])
             for try await chunk in stream {
                 response += chunk
             }
         } catch {
-            print("❌ Fehler beim Generieren der Fragen: \(error)")
+            print("Fehler beim Generieren der Fragen: \(error)")
             state = .idle
             return
         }
 
+        print("repsonse - \(response)")
         if response.lowercased().contains("bericht vollständig") {
             state = .generating
             await generateReport()
@@ -128,10 +126,10 @@ public class ChatController: ObservableObject {
 
         var raw = ""
         do {
-            let stream = try await instance.generate(dialogue: [Turn(role: .system, text: reportPrompt)])
+            let stream = await instance.generate(dialogue: [Turn(role: .system, text: reportPrompt)])
             for try await chunk in stream { raw += chunk }
         } catch {
-            print("❌ Fehler beim Generieren des Berichts: \(error)")
+            print("Fehler beim Generieren des Berichts: \(error)")
             state = .idle
             return
         }
@@ -173,17 +171,16 @@ public class ChatController: ObservableObject {
         guard let instance else { return nil }
         var resp = ""
         do {
-            let stream = try await instance.generate(dialogue: [Turn(role: .system, text: prompt)])
+            let stream = await instance.generate(dialogue: [Turn(role: .system, text: prompt)])
             for try await chunk in stream { resp += chunk }
             return clean(resp)
         } catch {
-            print("❌ LLM Prompt Fehler: \(error)")
+            print("LLM Prompt Fehler: \(error)")
             return nil
         }
     }
 
     // MARK: – Metadaten‑Extraktion
-
     public func extractDate(from text: String) async -> Date? {
         let prompt = """
         Im Text: "\(text)"
@@ -203,6 +200,22 @@ public class ChatController: ObservableObject {
         """
         return (await runSingleLinePrompt(prompt)) ?? "[Nicht bekannt]"
     }
+    
+    public func askAboutReport(prompt: String) async -> String? {
+        guard let instance else { return nil }
+        var response = ""
+        do {
+            let stream = await instance.generate(dialogue: [Turn(role: .system, text: prompt)])
+            for try await chunk in stream {
+                response += chunk
+            }
+            return clean(response)
+        } catch {
+            print("Fehler bei Frage an LLM: \(error)")
+            return nil
+        }
+    }
+
 
     public func extractKeywords3(from text: String) async -> [String] {
         let prompt = """
